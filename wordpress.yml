@@ -1,0 +1,17 @@
+---
+- name: Install wordpress
+  hosts: web
+  become: yes
+
+  tasks:
+  - name: Installing latest version of MySQL native driver, PHP, MariaDB, Apache webserver
+    dnf:
+      name:
+        - php-mysqlnd
+        - php-fpm
+        - mariadb-server
+        - httpd
+      state: latest
+
+
+
