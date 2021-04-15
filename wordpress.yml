@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-  - name: Installing latest version of MySQL native driver, PHP, MariaDB, Apache webserver
+  - name: Installing latest version of MySQL native driver, PHP, MariaDB, Apache webserver. firewalld
     dnf:
       name:
         - php-mysqlnd
@@ -26,3 +26,13 @@
       port: 80/tcp
       permanent: true
       state: enabled
+
+  - name: Start httpd & MariaDB
+    service:
+      name: "{{ item }}"
+      state: started
+      enabled: yes
+    with_items:
+      - httpd
+      - mariadb
+  
