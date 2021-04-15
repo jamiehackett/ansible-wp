@@ -11,9 +11,18 @@
         - php-fpm
         - mariadb-server
         - httpd
+        - firewalld
       state: latest
- 
-  - ansible.posix.firewalld:
-      service: http
-      permanent: yes
+
+  - name: Start firewalld
+    service:
+      name: firewalld
+      state: started
+      enabled: yes
+
+  - name: Enable port 80
+    firewalld:
+      zone: public
+      port: 80/tcp
+      permanent: true
       state: enabled
