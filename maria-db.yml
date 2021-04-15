@@ -12,7 +12,7 @@
       state: present
   
   - name: Install the Python MySQL Support Libraries
-    yum:
+    pip:
       name: PyMySQL
       state: latest
 
