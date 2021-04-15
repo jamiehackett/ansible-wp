@@ -4,6 +4,7 @@
   become: true
   vars:
     mysql_root_password: password
+    mysql_database_name: hello
 
   tasks:
   - name: Install MariaDB
@@ -45,6 +46,13 @@
   - name: Create a test DB
     mysql_db:
       name: MyNewDB
+      state: present
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+
+  - name: Create a custom DB
+    mysql_db:
+      name: "{{ mysql_database_name }}"
       state: present
       login_user: root
       login_password: "{{ mysql_root_password }}"
