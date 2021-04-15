@@ -35,4 +35,14 @@
     with_items:
       - httpd
       - mariadb
+
+  - name: Creating database
+    community.mysql.mysql_query:
+    query:
+    - CREATE DATABASE wordpress;
+    - CREATE USER `admin`@`localhost` IDENTIFIED BY `pass`;
+    - GRANT ALL ON wordpress.* TO `admin`@`localhost`;
+    - FLUSH PRIVILEGES;
+    
+
   
