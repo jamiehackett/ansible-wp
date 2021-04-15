@@ -48,4 +48,4 @@
       name: MyNewDB
       state: present
       login_user: root
-      login_password: "{{ mysql_root_password }}""
+      login_password: "{{ mysql_root_password }}"
