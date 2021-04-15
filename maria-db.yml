@@ -10,6 +10,11 @@
     yum:
       name: mariadb-server
       state: present
+  
+  - name: Install the Python MySQL Support Libraries
+    yum:
+      name: PyMySQL
+      state: latest
 
   - name: Start mysql & enable it on reboot
     service:
