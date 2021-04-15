@@ -12,6 +12,8 @@
         - mariadb-server
         - httpd
         - firewalld
+        - PyMySQL
+        - MySQLdb
       state: latest
 
   - name: Start firewalld
@@ -36,13 +38,13 @@
       - httpd
       - mariadb
 
-  - name: Creating database
-    community.mysql.mysql_query:
-    query:
-    - CREATE DATABASE wordpress;
-    - CREATE USER `admin`@`localhost` IDENTIFIED BY `pass`;
-    - GRANT ALL ON wordpress.* TO `admin`@`localhost`;
-    - FLUSH PRIVILEGES;
+ # - name: Creating database
+   # community.mysql.mysql_query:
+    #query:
+    #- CREATE DATABASE wordpress;
+    #- CREATE USER `admin`@`localhost` IDENTIFIED BY `pass`;
+    #- GRANT ALL ON wordpress.* TO `admin`@`localhost`;
+   # - FLUSH PRIVILEGES;
     
 
   
