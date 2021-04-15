@@ -13,7 +13,7 @@
         - httpd
       state: latest
  
-  - name: Permitting http traffic
+  - name: permit traffic in default zone for https service
     ansible.posix.firewalld:
       service: http
       permanent: yes
