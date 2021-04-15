@@ -12,6 +12,9 @@
         - mariadb-server
         - httpd
       state: latest
-
-
-
+ 
+  - name: Permitting http traffic
+    ansible.posix.firewalld:
+      service: http
+      permanent: yes
+      state: enabled
